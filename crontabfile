@@ -1,0 +1,1 @@
+* * * * * echo "Hell0 w0r1d for yOu" >> /var/log/cron.log

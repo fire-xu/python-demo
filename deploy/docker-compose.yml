@@ -1,0 +1,14 @@
+version: "2"
+services:
+  python:
+    image: registry.cn-shanghai.aliyuncs.com/lian_ns/test_dj:<BUILD_TAG>
+    container_name: "test_dj"
+    ports:
+      - 8000:8000
+    volumes:
+      - /var/log/test11:/opt/test11/log/
+    command: >
+      bash -c "gunicorn test11.wsgi -b 0.0.0.0:8000"
+    environment:
+      - env=production
+
