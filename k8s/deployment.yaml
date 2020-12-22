@@ -1,7 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: testdj-rc
+  name: python-demo
+  namespace: jenkins-k8s
 spec:
   selector:
     matchLabels:

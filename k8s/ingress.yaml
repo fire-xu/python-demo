@@ -6,10 +6,10 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
-  - host: testdj.codeeper.com
+  - host: python.demo.com
     http:
       paths:
       - path: /
         backend:
-          serviceName: testdj-svc
+          serviceName: python-demo
           servicePort: 8000
