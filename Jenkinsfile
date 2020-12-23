@@ -7,11 +7,15 @@ node('haimaxy-jnlp') {
 			if (env.BRANCH_NAME != 'main') {
                 build_tag = "${env.BRANCH_NAME}-${build_tag}"
         }
-    }
+    }  
 	}
 	stage('Sonar') {
         echo "3.Sonar Stage"
-    sh 'mvn sonar:sonar -Dsonar.host.url=http://192.168.6.150:8050 -Dsonar.login=d6c8fb1706d3d5824db5ea1c9d9101d0b47801eb'
+    sh 'sonar-scanner \
+  -Dsonar.projectKey=python-demo \
+  -Dsonar.sources=. \
+  -Dsonar.host.url=http://192.168.6.150:8050 \
+  -Dsonar.login=a887936f3a793c111cd43a2534475f5f72fd5bc5'
     }
  stage('Build') {
         echo "3.Build Docker Image Stage"
