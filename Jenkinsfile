@@ -20,12 +20,12 @@ node('haimaxy-jnlp') {
  stage('Build') {
         echo "3.Build Docker Image Stage"
     sh "docker build -t firexuxiaoman/python-demo:${build_tag} ."
+	sh "docker push reg.analyticservice.net/jenkins/python-demo:${build_tag}"
     }
     stage('Push') {
         echo "4.Push Docker Image Stage"
-        withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
-        sh "docker login -u ${dockerHubUser} -p ${dockerHubPassword}"
-        sh "docker push firexuxiaoman/python-demo:${build_tag}"
+        sh "docker login -u fire -p Pass1234 reg.analyticservice.net"
+        sh "docker push reg.analyticservice.net/jenkins/python-demo:${build_tag}"
     }
         }
     stage('Deploy') {
