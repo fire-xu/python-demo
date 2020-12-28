@@ -27,7 +27,6 @@ node('haimaxy-jnlp') {
         sh "docker login -u fire -p Pass1234 reg.analyticservice.net"
         sh "docker push reg.analyticservice.net/jenkins/python-demo:${build_tag}"
     }
-        }
     stage('Deploy') {
         echo 'Deploy Stage'
 		if (env.BRANCH_NAME == 'main') {
