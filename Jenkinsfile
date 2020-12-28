@@ -20,7 +20,7 @@ node('haimaxy-jnlp') {
  stage('Build') {
         echo "3.Build Docker Image Stage"
     sh "docker build -t firexuxiaoman/python-demo:${build_tag} ."
-	sh "docker push reg.analyticservice.net/jenkins/python-demo:${build_tag}"
+	sh "docker tag firexuxiaoman/python-demo:${build_tag} reg.analyticservice.net/jenkins/python-demo:${build_tag}"
     }
     stage('Push') {
         echo "4.Push Docker Image Stage"
